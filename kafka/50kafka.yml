@@ -18,6 +18,8 @@ spec:
         app: kafka
       annotations:
     spec:
+      nodeSelector:
+        node: node-1
       terminationGracePeriodSeconds: 30
       initContainers:
       - name: init-config

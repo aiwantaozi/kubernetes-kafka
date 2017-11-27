@@ -20,6 +20,8 @@ spec:
         storage: persistent
       annotations:
     spec:
+      nodeSelector:
+        node: node-1
       terminationGracePeriodSeconds: 10
       initContainers:
       - name: init-config
