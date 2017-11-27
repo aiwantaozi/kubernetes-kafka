@@ -58,6 +58,10 @@ spec:
         - ./bin/kafka-server-start.sh
         - /etc/kafka/server.properties
         - --override
+        -   advertised.host.name=47.52.237.108
+        - --override
+        -   advertised.port=32400
+        - --override
         -   zookeeper.connect=zookeeper:2181
         - --override
         -   log.retention.hours=-1
@@ -82,12 +86,5 @@ spec:
       - name: config
         configMap:
           name: broker-config
-  volumeClaimTemplates:
-  - metadata:
-      name: data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: kafka-broker
-      resources:
-        requests:
-          storage: 200Gi
+      - name: data
+        emptyDir: {}

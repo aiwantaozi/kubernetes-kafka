@@ -25,7 +25,7 @@ data:
 
       kubectl -n $POD_NAMESPACE label pod $POD_NAME kafka-broker-id=$KAFKA_BROKER_ID
 
-      OUTSIDE_HOST=$(kubectl get node "$NODE_NAME" -o jsonpath='{.status.addresses[?(@.type=="InternalIP")].address}')
+      OUTSIDE_HOST=$(curl http://100.100.100.200/latest/meta-data/eipv4)
       if [ $? -ne 0 ]; then
         echo "Outside (i.e. cluster-external access) host lookup command failed"
       else

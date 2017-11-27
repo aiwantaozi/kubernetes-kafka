@@ -5,8 +5,10 @@ metadata:
   name: zookeeper
   namespace: kafka
 spec:
+  type: NodePort
   ports:
   - port: 2181
     name: client
+    nodePort: 30071
   selector:
     app: zookeeper

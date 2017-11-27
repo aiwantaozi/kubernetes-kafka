@@ -65,12 +65,14 @@ spec:
       - name: config
         configMap:
           name: zookeeper-config
-  volumeClaimTemplates:
-  - metadata:
-      name: data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: kafka-zookeeper
-      resources:
-        requests:
-          storage: 1Gi
+      - name: data
+        emptyDir: {}
+  #volumeClaimTemplatddes:
+  #- metadata:
+  #    name: data
+  #  spec:
+  #    accessModes: [ "ReadWriteOnce" ]
+  #    storageClassName: kafka-zookeeper
+  #    resources:
+  #      requests:
+  #        storage: 1Gi
